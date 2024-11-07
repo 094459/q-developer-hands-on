@@ -25,6 +25,7 @@ You can use Amazon Q Developer to help you as you write code within your editor.
 
 Amazon Q supports a number of different ways you can enter instructions (prompts) that it will use to provide code suggestions. We can summarise these as the following:
 
+* Function prompt
 * Single line comment
 * Multi line comment
 * Single line prompt
@@ -37,10 +38,108 @@ You will notice that the code suggestions are greyed out. To accept the suggesti
 
 These code suggestions are automatic by default. The next section will walk you through how you can change this behaviour.
 
+*Function prompt*
+
+Amazon Q Developer can understand your intent and provides suggestions based on the function names. The more descriptive the function name is, the better the suggestions.
+
+Open up a new file in your VSCode, and type the following:
+
+```
+def towers_of_hanoi(
+```
+
+Do you copy/paste :-)
+
+As you hit the ( you should see Amazon Q Developer already anticipating what you want and provide some code suggestions. You can cycle between suggestions using the < and > cursor keys, and accept with TAB or quit by hitting ESC.
+
+You can try with some other function names, for example:
+
+```
+def get_average(numbers):
+```
+
+As your add code to your file, Amazon Q will take this into consideration. You can create a single function at the top of your code that has everything you want (for example a doc string, matches your style guide for variable or function name, etc), and then as you add more functions, it will copy the structure.
+
+For example, add the following at the top of the file (you can delete everything you just added)
+
+```
+def get_average(numbers):
+    """
+    Calculate the average of a list of numbers.
+
+    Args:
+    numbers (list): A list of numbers (int or float).
+
+    Returns:
+    float: The average of the numbers in the list.
+
+    Raises:
+    ValueError: If the input list is empty.
+    TypeError: If the input list contains non-numeric elements.
+
+    Example:
+    >>> get_average([1, 2, 3, 4, 5])
+    3.0
+    >>> get_average([])
+    Raises ValueError: Empty list provided
+    >>> get_average([1, 2, 'a', 4, 5])
+    Raises TypeError: List contains non-numeric elements
+    """
+    if not numbers:
+        raise ValueError("Empty list provided")
+    
+    if not all(isinstance(num, (int, float)) for num in numbers):
+        raise TypeError("List contains non-numeric elements")
+    
+    return sum(numbers) / len(numbers)
+```
+
+Now hit return a few times and then type in the following
+
+```
+def get_mean(numbers)
+```
+
+You should see that it generates very simiar boilerplate code that matches what you defined as your "standard". This is a very nice feature that allows you to code very quickly whilst ensuring you maintain all the things you want.
+
 *Single line comment*
 
+Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
+
+\# function to print a message
+
+When you hit return, you will see Amazon Q provide some code suggestions.
+
+*Multi line comment*
+
+This works the same as the previous one, except you can have the comments over a number of lines. For example, type the following in your IDE
+
+```
+"""
+Given a list that contains some numbers and strings, 
+format the list elements into a string in which the numbers are prepended with a "#" 
+and check for strings and wrap in a double quote.
+"""
+```
+
+When you hit enter, you should see Amazon Q provide code suggestions.
 
 
+*Single line prompt*
+
+Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
+
+\# CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
+
+You will see that it creates code based on this single line prompt.
+
+*Multi-line prompt*
+
+This works exactly like the previous one, except you can put your prompts on multiple lines. For example
+
+ \# CREATE a function called get user age
+ \# ask the user to input their age
+ \# RETURN the user's age
 
 *Enabling and disabling auto prompting*
 
@@ -79,36 +178,18 @@ Once you enter the prompt, it will now start to work. You cannot select differen
 I find this mode very powerful and improves the speed at which I can make updates/changes to my code. It tends to work well for specific ways you might want to work - updating existing code blocks for example, adding new functions, asking for optiisations, adding try / catch blocks, and more.
 
 
-*General considerations when using prompt to create code*
-
-You can use prompts to help you shape the kind of code it produces. Things like variable and function names, camel case (or not), etc. Things to think about.
-
-Avoid:
-
-* Avoid single letter variable names
-* Avoid generic names like data or value
-* Avoid names abbreviations like val or num
-
-Use:
-
-*Use descriptive names like numberOfStudents or totalPrice
-*Use names that are specific to the context of the code
-*Use names that are specific to the type of the variable
-*Use names that are specific to the value of the variable
-*Use names that are specific to the purpose of the variable
-*Use names that are specific to the scope of the variable (global, local, class, etc.)
-*Use names that are specific to the lifetime of the variable (constant, temporary, etc.)
-*Use names that are specific to the visibility of the variable (public, private, etc.)
-*Use prompt directives to emphasize certain keywords in order to achieve desirable response.
-
-
 **2. Using the VSCode Menu integration**
 
 From the main editor, you can invoke Amazon Q through the meny integration. When you right click anywhere in an active page, you will see Amazon Q, which then opens up to a number of different options. We will explore these now:
 
+* Explain - this will send whatever you have highlighted to the Amazon Q Chat panel, and ask Amazon Q to help explain what this code does
+* Refactor - this will review the snippet and suggest ways you can improve code readability or efficiency, among other improvements
+* Fix - this is handy if you are seeing linting errors in your code, or are trying to resolve other issues with your code
+* Optimise - this will look to see if it can optimise the performance of the code you have selected
+* Send to Prompt - this will copy the portion you have selected and then move it to the Amazon Q Developer Chat Panel. You can then provide your own prompt to ask Amazon Q Developer what you want it to do. This is an easier way than copy/pasting the code snippet yourself.
+* Inline Chat - this will bring up a small dialog box within the file you are editing, allowing you to enter a prompt. Amazon Q will then generate some code, asking you to then accept or reject it (hitting Enter to accept, or ESC to reject)
 
-
-
+There is a file in the repo (/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
 
 **3. Running a security scan**
 

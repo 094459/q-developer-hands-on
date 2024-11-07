@@ -51,4 +51,6 @@ We are going to build a **customer feedback survey** application. The applicatio
 
 Now that you have completed this Amazon Q Developer workshop, I hope you are beginning to see how you can use this as part of your day to day work. I have provided some [additional resources](workshop/resources.md) that you can review that share useful links to content, community spaces, and essential updates to keep up with the fast moving pace. I have also put togehter a [reference guide](workshop/reference.md) where you will find a handy list of the important things when using Amazon Q Developer.
 
-If you found this useful, please [provide feedback]() where I share some additional resources from some of my talks on Amazon Q Developer.
+**Feedback please**
+
+If you found this useful, please [provide feedback](https://pulse.aws/survey/1DM5TAZU) where I share some additional resources from some of my talks on Amazon Q Developer.
