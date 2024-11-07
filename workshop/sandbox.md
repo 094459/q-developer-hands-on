@@ -362,14 +362,24 @@ You can clear the conversation history by using the /clear command. Use this if 
 
 You can have a maximum of ten chat windows currently.
 
+**7. Amazon Q Developer Agent for software development**
 
-**7. Code Reference**
+Amazon Q Developer Agent for software development (/dev) is a powerful capability of Amazon Q that allows you to provide a prompt which will be analysed, broken down into a series of tasks, and then code generated. There are a few things you should know before using this:
+
+* limited quota - you have a limited number of quota for using /dev, so you should use it wisely. If you are using Free Tier (Builder ID) then you will have five invocations per month.
+* refine output from /dev - when you use /dev you have the possibility of providing feedback that will regenerate the code. This is not part of your service quota and so you should review carefully the initial output of /dev, and then use the "Provide Feedback and Regenerate" button to provide any refinements or updates you need. You can only do this three times though.
+* use scaffolding - we mentioned scaffolding previously, which is a very helpful technique to ensure consistency in the output you get from /dev
+* use cases - there are many use cases that are a good fit for /dev, and you will come to intuitively know when /dev vs other Amazon Q modalities are the right fit for what you are trying to do.
+
+We will be using /dev later in this workshop, so you will get to see some of this in action.
+
+**8. Code Reference**
 
 One of the questions you might be asking yourself is as Amazon Q Developer provides code suggestions, how much of that code might come from the open source projects used to train the large language models behind it. Amazon Q Developer allows you to configure this - you can either explicityly turn off any code suggestions that match code from open source repositories, or you can leave it enabled, and Amazon Q Developer will notify you. In practice I have found that I rarely encounter this.
 
 Check out [this very short video](https://www.youtube.com/shorts/Fmn37wGQUY8) that shows what this looks like when it does happen.
 
-**8. Tripping the AI Guardrails**
+**9. Tripping the AI Guardrails**
 
 In this last section we take a look at something that you are probably going to encounter as you use Amazon Q Developer - the [AWS Responsible AI Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/).
 
