@@ -2,20 +2,20 @@
 
 ### Getting confident with Amazon Q Developer
 
-Before we build an application, we will complete a few excercises that will allow you to get familiar with how the different capabilities of Amazon Q work. To get started we have a code repo that we will use. From a command prompt, create a new working directory and then run the following commands:
-
-```
-git clone xx
-cd xx
-code .
-```
-
-This will start a new VSCode instance with the files we are going to work with.
+Before we build an application, we will complete a few excercises that will allow you to get familiar with how the different capabilities of Amazon Q work. Create a new directory, and then start a new VSCode instance. We will use this whilst we are running through the basics. Once we have completed this lab, we will close everything down.
 
 **Do you use other generative AI coding tools?**
 
 If you currently are using a generative AI tool (e.g. Continue, Supermaven, Copilot, etc) then you may find that some of the keyboard shortcuts do not work. For the duration of this workshop, find the other AI coding tools you are using and temporarily disable them. To do this, go to the plugin section, locate your plugin and then from the settings select disable.
 
+**Understanding Free Tier vs Professional**
+
+It is worth spending a few minutes to review the key differences between the capabilities and service limits available depending on whether you are using the Free Tier (using Builder ID), with the Professional Tier.
+
+Review the [pricing page](https://aws.amazon.com/q/developer/pricing/), as of writing you can see some of the key differences are around some capabilities (auto security scanning), as well as service limits (the number of times you can use Amazon Q Developer Agent for software development, the number of lines of code you can submit for security scans, etc)
+
+If you want to use Professional Tier you will need to have an AWS account.
+If you do not currently have an AWS account, then Builder ID is the way forward for you.
 
 **1. Using in-line editor**
 
@@ -124,9 +124,18 @@ You can click on the link to take you directly to the issue, and you can also th
 ![Review options](/images/q-vscode-finding-options.png)
 
 
-In the repo we have provided a sample file (security-example.py) which contains an issue. Trigger a Security Scan and follow the steps to 1/ review the findings, 2/ use the explain and options links to see what suggestions are provided.
+In the repo we have provided a sample file [security-example.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/security-example.py) which contains an issue. 
+
+Trigger a Security Scan and follow the steps to 1/ review the findings, 2/ use the explain and options links to see what suggestions are provided.
 
 Implement any suggestions and re-run the scan again. You should find that you no longer have issues.
+
+*Auto scanning*
+
+
+
+*Security Scan limits*
+
 
 
 **4. Configuring and using @Workspace**

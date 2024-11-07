@@ -6,7 +6,7 @@
 
 In this hands on lab, we are going to run through how to use the next generation of developer tooling (Amazon Q Developer) to help make our jobs as developers more enjoyable and productive. We will create a new application from scratch, and then build upon this and perform many of the tasks you would typically do as a developer. **You do not have to have an AWS account or be an AWS user to go through this workshop**.
 
-One thing to bear in mind before we start. Unlike other workshops, because of the non deterministic nature of these tools, there is no guarantee that the output will be the same as what your peers will see. What that means is that if you are working in groups, you can all expect different outputs. We have provided a [sample repo](https://github.com/094459/q-workshop-app) that you can use as a baseline, but we encourage you to explore and work with your own experiments - this is the most effective way of learning how these tools work.
+One thing to bear in mind before we start. Unlike other workshops, because of the non deterministic nature of these tools, there is no guarantee that the output will be the same as what your peers will see. What that means is that if you are working in groups, you can all expect different outputs. We have provided a [sample repo](https://github.com/094459/q-developer-workshop-demo-code) that you can use as a baseline, but we encourage you to explore and work with your own experiments - this is the most effective way of learning how these tools work.
  
 The workshop is split into a number of different labs which you can run either within a controlled workshop, or at your own pace. Feel free to contact me if you run into any issues.
 

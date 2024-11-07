@@ -165,7 +165,7 @@ From a new Amazon Q Developer Chat interface, enter the following prompt:
 
 Review the output. This is what mine looked like.
 
-![output from using @workspace to create documentation](images/q-vscode-document.png)
+![output from using @workspace to create documentation](/images/q-vscode-document.png)
 
 I could now go through and update the code, using the "Insert Code" link that you see at the bottom of the output window. I follow this up by asking Amazon Q Developer to create me a README file, showing how the project works, how to run it, and how to use it.
 
@@ -177,7 +177,7 @@ I was very happy with the output, but maybe there is an easier way. Well there i
 
 I let it run for 3-4 minutes, and after it has finished, I can review what it has done, and the output. I can see it has created a new file (README.md) and it has updated my existing app.py file.
 
-![Amazon Q documenting my project](images/q-vscpde-readme.png)
+![Amazon Q documenting my project](/images/q-vscpde-readme.png)
 
 Take a look at your output. What do you think? If you are not happy, remember to use the "Provide Feedack and Generate", and use additional prompts to tweak the documentation as you want or need it. When I ran this, I used this feedback loop to refine the README around how to create and configure the database as the initial output was not quite right (it referred to using a tool called flask db, which I did not have installed)
 
