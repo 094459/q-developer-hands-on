@@ -211,6 +211,6 @@ git checkout lab-12
 **Complete:** You now have completed thie workshop, congratulations. 
 
 
-You can return back to the [Starting Page](README.md) to find out about additional resources that will help you stay on top of new updates and improvements with Amazon Q Developer.
+You can return back to the [Starting Page](/README.md) to find out about additional resources that will help you stay on top of new updates and improvements with Amazon Q Developer.
 
 We are driven by customer feedback, and I would appreciate you also completing a feedback form before you go.
