@@ -161,7 +161,7 @@ We are going to do this using a number of techniques as I find that as you write
 We will work from the baseline project code, so stop the application if it is currently running and then from the terminal:
 
 ```
-git checkout lab-011
+git checkout lab-010
 ```
 
 *Documenting code blocks*

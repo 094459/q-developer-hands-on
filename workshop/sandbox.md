@@ -37,6 +37,30 @@ You will notice that the code suggestions are greyed out. To accept the suggesti
 
 These code suggestions are automatic by default. The next section will walk you through how you can change this behaviour.
 
+*Single line comment*
+
+
+
+
+*Enabling and disabling auto prompting*
+
+Something that you will need figure out as you start using Amazon Q Developer is whether you want it to automatically make code suggestions as you code, or whether you want to manually invoke it via some command line controls.
+
+You can enable/disable the auto-suggestions by clicking on the "Pause Auto Suggestions" when you bring up the Amazon Q menu (click on the Amazon Q on the VSCode status bar at the bottom)
+
+Spend some time experimenting with this. Open up a new file (experiment.py) and then at the top of it write the following:
+
+\# Add Python library imports for Flask and SQLAlcamey
+
+Hit return. You should see Amazon Q thinking (it will be greyed out) before providing you with some code suggestions.
+
+Now go to the Amazon Q setting and disable auto suggestion. You should notice that the icon looks like the pause icon. From the same file, delete everything that you previous created and type the same thing
+
+\# Add Python library imports for Flask and SQLAlcamey
+
+When you hit return this time, it should not generate any output. No, move your cursor to the end, and hit OPTION + C (Mac), ALT + C (Windows) and this time you should see Amazon Q make some suggestions. If you hit tab to accept, and then hit return and press OPTION/ALT + C again, you will see further suggestions.
+
+Re-enable auto suggestions as we will be using this during the workshop.
 
 *Inline prompt*
 
@@ -55,23 +79,9 @@ Once you enter the prompt, it will now start to work. You cannot select differen
 I find this mode very powerful and improves the speed at which I can make updates/changes to my code. It tends to work well for specific ways you might want to work - updating existing code blocks for example, adding new functions, asking for optiisations, adding try / catch blocks, and more.
 
 
-*Enabling and disabling auto prompting*
+*General considerations when using prompt to create code*
 
-Something that you will need figure out as you start using Amazon Q Developer is whether you want it to automatically make code suggestions as you code, or whether you want to manually invoke it via some command line controls.
-
-You can enable/disable the auto-suggestions by clicking on the "Pause Auto Suggestions" when you bring up the Amazon Q menu (click on the Amazon Q on the VSCode status bar at the bottom)
-
-Spend some time experimenting with this. Open up a new file (experiment.py) and then at the top of it write the following:
-
-\# Add Python library imports for Flask and SQLAlcamey
-
-Hit return. You should see Amazon Q thinking (it will be greyed out) before providing you with some code suggestions.
-
-
-
-
-
-*General considerations when entering prompts*
+You can use prompts to help you shape the kind of code it produces. Things like variable and function names, camel case (or not), etc. Things to think about.
 
 Avoid:
 
@@ -93,6 +103,8 @@ Use:
 
 
 **2. Using the VSCode Menu integration**
+
+From the main editor, you can invoke Amazon Q through the meny integration. When you right click anywhere in an active page, you will see Amazon Q, which then opens up to a number of different options. We will explore these now:
 
 
 
@@ -187,17 +199,41 @@ From this we can see that **/Users/ricsue/.aws/amazonq/cache/** is the location 
 
 **5. Context**
 
-Understand context is critical in how to understand and influence how Amazon Q Developer can help you.
+Understand context is critical in how to understand and influence how Amazon Q Developer can help you. This section explores the differnt ways that Amazon Q Developers understand what you are trying to make it do. Context is everything and key to improving your success with tools like Amazon Q Developer.
 
+*Modality*
+
+It is important to understand that how Amazon Q gets context is dependant on how you are using it. If you are using the inline editing modality, the characteristics of what Amazon Q needs to do (be very fast, and provide instance responses) means that the context is very small (the prompt itself). If you are in the chat interface, then the responses do not have to be immediate, and so the context can be larger. Bear this in mind as you think about how you use the different modalities within Amazon Q.
+
+*Import statements*
+
+You can influence the suggestions that Amazon Q provides you by adding the libraries you want to use at the start of your code. For example, if I ask Amazon Q to create code for a python web framework, with a blank project file, I might get Flask, FastAPI, or DJango. If I first add 'from flask import Flask' at the top of the page, it will almost always provide me with Flask code*
+
+*I say nearly, as it is impossible to be 100% certain with non deterministic systems
 
 *Open Files or tabs*
 
+The first place that Amazon Q looks for context when using Chat interface is the files you have open within the IDE. It can be a good idea to just keep the key files open you need to help focus Amazon Q.
 
-*Chat interface*
+In addition, Amazon Q is smart enough to understand that important context can be obtained from key files. If you are working with Java projects, it will read your pom.xml for example.
 
+*Small files*
 
-*Conversation history and Amazon Q tabs*
+Because context sizes are so important, and they are of a finite size, you might find better results by breaking down your project into smaller files. This will allow those files to reside within the context space available.
 
+*Markdown files*
+
+If you have lots of markdown docs in your project, and you are using /dev or @workspace, sometimes these can affect the responses you get. If you are getting strange responses, think about creating a hiddle directory (.markdown) and locating them there.
+
+*Monorepo vs Multi-repo*
+
+If you are wanting to work in a project (for example Python) but have a lot of other code in your workspace (perhaps because you are working in a mono repo environment) the responses you can get from Amazon Q may not be what you expect. You might get Javascript or Python despite the project you are working in being in the other language. The best way to tackle this is to try and setup your IDE so that it is just working in a subfolder of your mono repo and avoid files within your local workspace that are a distraction.
+
+*Customisation*
+
+Amazon Q Developer allows you to provide your own code to help influence code suggestions. This is currently only available with the Professional Tier, and not in scope within this workshop. It is good to know that this capability is very powerful, allow developers to have a number of customised models that they can use depending on the different custom code they want to use.
+
+Check out [this video](https://www.youtube.com/watch?v=dsjXb4TvfPg) for more info.
 
 *Scaffolding*
 
@@ -213,16 +249,67 @@ When using /dev, you can provide additional info within the prompt to help scaff
 ![example q scaffold](/images/q-scaffolding.png)
 
 
+*When your prompts don't work*
+
+Occasionaly you will enter a prompt and receive the following response:
+
+![Not accepting prompt](/images/q-vscode-context.png)
+
+It can sometimes be a little random when this happens, so here are a few tips to help you resolve this issue:
+
+* stay within the same 'conversation' as Amazon Q retains memory and context, and you are less likely to encounter this issue if it is part of a longer conversation
+* change the order of the words - sometimes you might need to revise your prompt, removing potentially confusing words
+* try a different prompt - you can keep the same intention but try using completely different words
+
+In most cases these will resolve your issues.
+
+**6. Chat interface**
+
+When using the Chat interface, there are some things you should be aware of to help improve your success when working with it.
+
+*Max size*
+
+You can enter a maximum of 4000 characters into the chat interface. Bear this in mind if you are using the integration with the VSCode menu to send highlighted code to the Amazon Q chat interface (Amazon Q > Send to Prompt). If you are working on a particularly large file, you might exceed your limit and have no space for a prompt. You will notice that there is a counter underneath the chat interface to help you know how close you are getting to your limit.
+
+*Conversation history*
+
+As you work back and forth in the Amazon Q chat interface (aka CHat Orientated Programming,or CHOP), under the covers Amazon Q is retaining a history of the conversation and retains context. Whilst it may be tempting to close the chat tab, or open new ones, maintaining this context can be key to getting better responses.
+
+You can clear the conversation history by using the /clear command. Use this if you feel that the conversation has run its course, or has become circular.
+
+*Tabs*
+
+You can have a maximum of ten chat windows currently.
 
 
-
-**6. Code Reference**
+**7. Code Reference**
 
 One of the questions you might be asking yourself is as Amazon Q Developer provides code suggestions, how much of that code might come from the open source projects used to train the large language models behind it. Amazon Q Developer allows you to configure this - you can either explicityly turn off any code suggestions that match code from open source repositories, or you can leave it enabled, and Amazon Q Developer will notify you. In practice I have found that I rarely encounter this.
 
 Check out [this very short video](https://www.youtube.com/shorts/Fmn37wGQUY8) that shows what this looks like when it does happen.
 
+**8. Tripping the AI Guardrails**
+
+In this last section we take a look at something that you are probably going to encounter as you use Amazon Q Developer - the [AWS Responsible AI Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/).
+
+Occasionally as you use and interact with Amazon Q Developer in any of the different modalities (chat, /dev, @workspace, or in-lin), the output may come to an stop and you will be greeted a message.
+
+![Guardrail message one](/images/q-vscode-guardrail.png)
+
+The message might take other forms, for example with an error popup appearing in the bottom right of VSCode.
+
+![Guardrail tripping](/images/q-vscode-error.png)
+
+If you do encounter these, then try:
+
+* adjusting the prompt - use different words, change the order
+* test this against different files in your repo - sometimes it can be just one file that trips the guardrails, so you can narrow down where Amazon Q is tripping up
+* review the Amazon Q Logs to see if you can find any information that might help you identify the root issue
+
+The guardrails provide important protection for users of Amazon Q, and the tension between what will work and what trips them is changing all the time.
+
 
 **Complete!**
 
-Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Getting started building our application](building-our-app-part-1.md)
+Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Getting started building our application](building-our-app-part-1.md).
+
