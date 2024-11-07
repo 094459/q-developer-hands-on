@@ -153,33 +153,60 @@ If you get stuck, or want to see the completed sample I came up with, check out 
 
 Documentation is a critical part of every application, and yet sometimes this is lacking in the code and projects we have to work with. We can use Amazon Q Developer to help us automate this task, updating both documentation in code, as well as creating README files to help others understand how to use this code. Lets create some documentation for our project.
 
-We are going to do this two ways - first using @workspace to create the documentation which we will manually have to add, and then using /dev to automate the process of creating the documentation. We are first going to make sure we are all on the same page code wise:
+We are going to do this using a number of techniques as I find that as you write code, they can all be used successfully as you code - no need to wait until the end. Taking a step back, as we think about how we approach documenting our project, we might want to:
+
+* document our code (functions, imports, logic, tests, etc) as we go along
+* create higher level documentation (README, maintainance or operational, etc) at the very end once the rate of change of the application changes.
+
+We will work from the baseline project code, so stop the application if it is currently running and then from the terminal:
 
 ```
 git checkout lab-011
 ```
 
-From a new Amazon Q Developer Chat interface, enter the following prompt:
+*Documenting code blocks*
 
-> @workspace Add doc strings to the app.py and document how the code works, providing doc strings for each function and each route
+There are a number of ways we might approach documenting our code as we write it. We can use:
 
-Review the output. This is what mine looked like.
+* Amazon Q inline prompts to add the documentation by selecting the block and then doing CONTROL + I and entering a prompt such as "Doucment this code block"
 
-![output from using @workspace to create documentation](/images/q-vscode-document.png)
+* Use @workspace and ask it provide documentation for our code. We might use a prompt like this - "@workspace Add doc strings to the app.py and document how the code works, providing doc strings for each function and each route"
 
-I could now go through and update the code, using the "Insert Code" link that you see at the bottom of the output window. I follow this up by asking Amazon Q Developer to create me a README file, showing how the project works, how to run it, and how to use it.
+* Use the Amazon Q menu integration, selecting a code block and then using the same prompts as above
 
-> @workspace create a README file that tells readers how the project works, how to run it, and how to use it.
+* Use the Amazon Q Developer Agent for software development (/dev) and ask it to write the documentation for us. We might use a more specific prompt to guide it to what we want documented and the level. We need to counter that by the fact that we will be using one of our quote for /dev. You will need to weigh ypthe size and complexity of your project, against the amount of time/effort you think it might save.
 
-I was very happy with the output, but maybe there is an easier way. Well there is, and again we can use Amazon Q Developer Agent for software development (/dev) to automate this for us. We invoke /dev from the Amazon Q Developer chat interface, and then enter this prompt.
+*Creating README*
 
-> /dev Add doc strings to the app.py and document how the code works, providing doc strings for each function and each route. Create a README.md file that tells readers how the project works, how to run it, and how to use it.
+To create documentation for the entire project, we again have options. These vary based on the effort required, so you should review this before deciding.
 
-I let it run for 3-4 minutes, and after it has finished, I can review what it has done, and the output. I can see it has created a new file (README.md) and it has updated my existing app.py file.
+* Using @workspace with prompts such as "Create a README.md that documents the application. I want to document the codebase, how the application works, how to start the application, how to use the application" - you can add more, this is just a particular example
 
-![Amazon Q documenting my project](/images/q-vscpde-readme.png)
+* Use /dev as per the previous example
 
-Take a look at your output. What do you think? If you are not happy, remember to use the "Provide Feedack and Generate", and use additional prompts to tweak the documentation as you want or need it. When I ran this, I used this feedback loop to refine the README around how to create and configure the database as the initial output was not quite right (it referred to using a tool called flask db, which I did not have installed)
+1/ From the codebase, select a block of code and try using the inline (COMMAND + I) prompt with the following
+
+> provide a docstring this code block
+
+2/ From the codebase, select a block of code, and then right click on the menu, and select Send to Prompt. On the chat interface, add "Provide documentation for this code block"
+
+3/ From the Amazon Q Chat interface, enter the following prompt:
+
+>@workspace Create documentation for the application code in app.py
+
+4/ From the Amazon Q Chat interface, we will use /dev to get the Amazon Q Developer Agent for software development to write our documentation for us. After entering /dev, use a prompt like this
+
+>/dev I want you to document this project. 1/ Create a README.md that outlines how the application works, how to install and get started, and how to use the application, 2/ Document the code with docstrings to explain how the code works, 3/ Provide a User guide that can be used to help someone understand how to use the application
+
+
+When it has produced the updated code and documentation, do NOT automatically accept it. Review it. Is there anything missing? If you are not entirely happy, use the "Provide feedback and regenerate" button, and provide some follow up feedback
+
+Once you have experimented with this, you can compare how your documentation looks like with the workshop baseline code
+
+```
+git checkout lab-12
+```
+
 
 **Complete:** You now have completed thie workshop, congratulations. 
 
