@@ -189,7 +189,7 @@ From the main editor, you can invoke Amazon Q through the meny integration. When
 * Send to Prompt - this will copy the portion you have selected and then move it to the Amazon Q Developer Chat Panel. You can then provide your own prompt to ask Amazon Q Developer what you want it to do. This is an easier way than copy/pasting the code snippet yourself.
 * Inline Chat - this will bring up a small dialog box within the file you are editing, allowing you to enter a prompt. Amazon Q will then generate some code, asking you to then accept or reject it (hitting Enter to accept, or ESC to reject)
 
-There is a file in the repo (/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
+There is a file in the repo [/resources/in-menu.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
 
 **3. Running a security scan**
 
