@@ -348,7 +348,7 @@ When using /dev, you can provide additional info within the prompt to help scaff
 
 ---
 
-### 6. When your prompts don't work**
+### 6. When your prompts don't work
 
 Occasionaly you will enter a prompt and receive the following response:
 
