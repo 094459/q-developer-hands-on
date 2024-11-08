@@ -382,6 +382,16 @@ You can clear the conversation history by using the /clear command. Use this if 
 
 You can have a maximum of ten chat windows currently.
 
+**Copy and Pasting code**
+
+When Amazon Q produces code in the chat interface, you will notice that there are two icons at the bottom of any code block which allow you to COPY the code into the clipboard, or INSERT INTO CURSOR, which will try and PASTE the code where your cursor is. The caveat here is that the cursor needs to be within a file in the IDE - it will not send that into the Terminal within VSCode or anywhere else.
+
+Using these two buttons provides a simple and quick way of getting code from the chat interface and into your code.
+
+**View and Apply Diff**
+
+In recent updates to the Amazon Q plugin, where code suggestions are updates to existing code you will notice two other buttons appear - VIEW DIFF and APPLY DIFF. What these do is allow you to directly view the code differences between what you have and what the Amazon Q chat output is suggesting. You can then use the APPLY DIFF to automatically update the content.
+
 ---
 
 ### 8. Amazon Q Developer Agent for software development

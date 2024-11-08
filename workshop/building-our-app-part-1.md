@@ -170,13 +170,30 @@ Review the SQL - does it look right?
 
 > @workspace MYSTYLE Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback. I want the code in Python.
 
-Review the output. Create a new file called "customer-survey.py" and paste the code into this file. Take some time to review the code, and use the Explain feature if needed. Before we run this code, it is likely you will need to install some Python libraries before you can run the code.
+Review the output. 
+
+1. Create a new file called "customer-survey.py"
+2. Paste the code from the Amazon Q Chat interface into this file.
+
+Take some time to review the code, and use the Explain feature if needed. 
+
+Before we run this code, it is likely you will need to install some Python libraries before you can run the code. Run the following from the VSCode terminal making sure that you are still in the Python virtual environment - your prompt should start (.venv)
 
 ```
 pip install sqlalchemy
 ```
 
-Run the code and you should see a new sqlite database created in the local directory. If you have installed the VSCode plugin Database JDBC Client, you should be able to connect to this and see that the tables have been created. 
+Run the code
+
+```
+python customer-survey.py
+```
+
+You should see a new sqlite database created in the local directory. 
+
+> **Help!** If you get an error when trying to run your python code, copy the error message and then ask Amazon Q Developer to help you. It will be able to guide you through to a solution which you can then try by running the Python file again.
+
+If you have installed the VSCode plugin Database JDBC Client, you should be able to connect to this and see that the tables have been created. 
 
 ![Exploring the created data](/images/q-vscode-sqlite-overview.png)
 
@@ -186,8 +203,17 @@ First we need to delete the sqlite database file that was just created. Don't wo
 
 Second delete the customer-survey.py that you created. In the next lab we are going to create our application using the data model that we added to the sql file
 
-Once you have done these two things, we are ready to go.
+Once you have done these two things, your directory structure should now look like this:
 
+```
+├── .qdeveloper
+│   └── MY-PREFERENCES.md
+└── .venv
+└── data
+    └── customer-feedback.sql
+```
+
+Confirm that this is what your environment looks like before proceeding to the next step.
 
 **Complete:** When your database now has your created tables and indexes, you can proceed to the next lab, [Part Two](building-our-app-part-2.md)
 
