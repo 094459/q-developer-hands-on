@@ -8,7 +8,7 @@ In the first part of this lab we are going to start by first looking at the data
 
 > **Using Git branching when coding using AI coding assistants**
 >
->Whilst you will be generating code in this lab, to make it easier to follow along I have provided a git repo that provides code that will support >you as you explore. When you check out this repo there will be no code - don't worry, this is as per design. As we progress, we will use different >branches within this repo to bring you to a working place. Feel free to ignore these and use your own code if you want. You can always reset and get >back on track as the lab will provide necessary instructions.
+>Whilst you will be generating code in this lab, to make it easier to follow along I have provided a git repo that provides code that will support you as you explore. When you check out this repo there will be no code - don't worry, this is as per design. As we progress, we will use different branches within this repo to bring you to a working place. Feel free to ignore these and use your own code if you want. You can always reset and get back on track as the lab will provide necessary instructions.
 >
 
 **Creating our Python Virtual Environment**
@@ -38,6 +38,8 @@ You should also switch your VSCode Python environment to use this. From VSCode p
 
 You are now ready to go.
 
+---
+
 **Lab 01-1 Our application - Creating our Data Model**
 
 The application we want to build is a simple tool for collecting customer feedback. We are going to start by using Amazon Q Developer to help us define the data model for this application, providing various prompts that will help provide a good starting point of what we want our data model to look like. Once we have our data model, we can then start to create some code artefacts.
@@ -59,6 +61,8 @@ We are going to now try again, and this time use a feature of the Amazon Q Devel
 We are going to use this file to help tailor the output of Amazon Q Developer, using the @workspace feature. This feature is disabled by default (it is currently a BETA feature) and so we are going to have to enable it. Once enabled, this is going to index your local VSCode workspace, looking at all the files including the DBA.md. Once the indexing has completed, we can use the @workspace in the Amazon Q Developer chat interface to add specific files as part of the context. In this case we are using it to help steer the kind of output we want Amazon Q Developer to give us, but we can use it for lots of other use cases too.
 
 Right, lets enable this now.
+
+---
 
 **Task 2**
 
@@ -92,6 +96,8 @@ You can also see the logs by changing the OUTPUT menu option to "Amazon Q Logs"
 
 We can now try this feature out.
 
+---
+
 **Task 3**
 
 1/ From the Amazon Q Developer Chat interface, type @ and you should see workspace appear. Tab to complete that, and then add the following to your prompt:
@@ -101,6 +107,8 @@ We can now try this feature out.
 Hit return and review the output. You should get very different output this time. 
 
 2/ Make a change to the MY-PREFERENCE.md file, changing sqlite to a different database (I tried this with Oracle, but feel free to experiment). Try the same prompt again after a few moments. Did you get different output? Change the text in MY-PREFERENCE.md back to what it was.
+
+---
 
 **Task 4**
 
@@ -115,6 +123,7 @@ We will now create our data model. You can do this a number of ways, and it will
 > @workspace DEVSTYLE Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback. 
 
 Review the SQL - does it look right?
+
 
 *Getting Amazon Q Developer to help explain code*
 
