@@ -12,10 +12,12 @@ If you currently are using a generative AI tool (e.g. Continue, Supermaven, Copi
 
 It is worth spending a few minutes to review the key differences between the capabilities and service limits available depending on whether you are using the Free Tier (using Builder ID), with the Professional Tier.
 
-Review the [pricing page](https://aws.amazon.com/q/developer/pricing/), as of writing you can see some of the key differences are around some capabilities (auto security scanning), as well as service limits (the number of times you can use Amazon Q Developer Agent for software development, the number of lines of code you can submit for security scans, etc)
+Review the [pricing page](https://aws.amazon.com/q/developer/pricing/), as of writing you can see some of the key differences are around some capabilities (auto security scanning, the ability to create custom models based on your own code), as well as service limits (the number of times you can use Amazon Q Developer Agent for software development, the number of lines of code you can submit for security scans, etc)
 
-If you want to use Professional Tier you will need to have an AWS account.
-If you do not currently have an AWS account, then Builder ID is the way forward for you.
+* If you want to use Professional Tier you will need to have an AWS account.
+* If you do not currently have an AWS account, then Builder ID is the way forward for you.
+
+---
 
 ### 1. Using in-line editor
 
@@ -106,7 +108,9 @@ You should see that it generates very simiar boilerplate code that matches what 
 
 Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
 
+```
 \# function to print a message
+```
 
 When you hit return, you will see Amazon Q provide some code suggestions.
 
@@ -129,7 +133,9 @@ When you hit enter, you should see Amazon Q provide code suggestions.
 
 Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
 
+```
 \# CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
+```
 
 You will see that it creates code based on this single line prompt.
 
@@ -137,9 +143,13 @@ You will see that it creates code based on this single line prompt.
 
 This works exactly like the previous one, except you can put your prompts on multiple lines. For example
 
+```
  \# CREATE a function called get user age
+
  \# ask the user to input their age
+
  \# RETURN the user's age
+```
 
 **Enabling and disabling auto prompting**
 
@@ -177,6 +187,7 @@ Once you enter the prompt, it will now start to work. You cannot select differen
 
 I find this mode very powerful and improves the speed at which I can make updates/changes to my code. It tends to work well for specific ways you might want to work - updating existing code blocks for example, adding new functions, asking for optiisations, adding try / catch blocks, and more.
 
+---
 
 ### 2. Using the VSCode Menu integration
 
@@ -189,7 +200,9 @@ From the main editor, you can invoke Amazon Q through the meny integration. When
 * Send to Prompt - this will copy the portion you have selected and then move it to the Amazon Q Developer Chat Panel. You can then provide your own prompt to ask Amazon Q Developer what you want it to do. This is an easier way than copy/pasting the code snippet yourself.
 * Inline Chat - this will bring up a small dialog box within the file you are editing, allowing you to enter a prompt. Amazon Q will then generate some code, asking you to then accept or reject it (hitting Enter to accept, or ESC to reject)
 
-There is a file in the repo [/resources/in-menu.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
+There is a file in the repo [resources/in-menu.py](https://github.com/094459/q-developer-hands-on/blob/main/resources/in-menu.py) where you can practice some of these. Explore each of them so you can see the kind of output they produce.
+
+---
 
 ### 3. Running a security scan
 
@@ -239,6 +252,8 @@ Remember that when using Amazon Q Developer Security Scanning with the Builder I
 
 The [Security Scan](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security-scans.html) documentation is a helpful reference to find out more about how this works, including the different kinds of security scanning tests performed, supported programming languages, and limits.
 
+---
+
 ### 4. Using @Workspace
 
 In the previous section you saw how to configure and enable Amazon Q Workplace indexing. Here we will dive a little deeper into how it works. As of writing this is still a beta feature, so bear that in mind.
@@ -279,6 +294,8 @@ From this we can see that **/Users/ricsue/.aws/amazonq/cache/** is the location 
 * Disable the Amazon Q: Workplace Index using the previous step
 * From the terminal, locate the directory where the indexes are created and then delete them
 * Re-enable the Workspace Index
+
+---
 
 ### 5. Context
 
@@ -327,8 +344,9 @@ When using /dev, you can provide additional info within the prompt to help scaff
 
 ![example q scaffold](/images/q-scaffolding.png)
 
+---
 
-**When your prompts don't work**
+### 6. When your prompts don't work**
 
 Occasionaly you will enter a prompt and receive the following response:
 
@@ -342,7 +360,9 @@ It can sometimes be a little random when this happens, so here are a few tips to
 
 In most cases these will resolve your issues.
 
-### 6. Chat interface
+---
+
+### 7. Chat interface
 
 When using the Chat interface, there are some things you should be aware of to help improve your success when working with it.
 
@@ -360,7 +380,9 @@ You can clear the conversation history by using the /clear command. Use this if 
 
 You can have a maximum of ten chat windows currently.
 
-### 7. Amazon Q Developer Agent for software development
+---
+
+### 8. Amazon Q Developer Agent for software development
 
 Amazon Q Developer Agent for software development (/dev) is a powerful capability of Amazon Q that allows you to provide a prompt which will be analysed, broken down into a series of tasks, and then code generated. There are a few things you should know before using this:
 
@@ -371,13 +393,17 @@ Amazon Q Developer Agent for software development (/dev) is a powerful capabilit
 
 We will be using /dev later in this workshop, so you will get to see some of this in action.
 
-### 8. Code Reference
+---
+
+### 9. Code Reference
 
 One of the questions you might be asking yourself is as Amazon Q Developer provides code suggestions, how much of that code might come from the open source projects used to train the large language models behind it. Amazon Q Developer allows you to configure this - you can either explicityly turn off any code suggestions that match code from open source repositories, or you can leave it enabled, and Amazon Q Developer will notify you. In practice I have found that I rarely encounter this.
 
 Check out [this very short video](https://www.youtube.com/shorts/Fmn37wGQUY8) that shows what this looks like when it does happen.
 
-### 9. Tripping the AI Guardrails
+---
+
+### 10. Amazon Q AI Guardrails
 
 In this last section we take a look at something that you are probably going to encounter as you use Amazon Q Developer - the [AWS Responsible AI Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/).
 
