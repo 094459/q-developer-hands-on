@@ -109,7 +109,7 @@ You should see that it generates very simiar boilerplate code that matches what 
 Amazon Q Developer can understand your intent and provides suggestions based on single line comments. For example, in the IDE type the following:
 
 ```
-\# function to print a message
+# function to print a message
 ```
 
 When you hit return, you will see Amazon Q provide some code suggestions.
@@ -134,7 +134,7 @@ When you hit enter, you should see Amazon Q provide code suggestions.
 Amazon Q Developer will understand your intent and provides suggestions based on the a prompt that you provide within the file you are working on. For example, type the following and then hit enter
 
 ```
-\# CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
+# CREATE a function called get user age, ask the user to input their age, and RETURN the user's age
 ```
 
 You will see that it creates code based on this single line prompt.
@@ -144,11 +144,9 @@ You will see that it creates code based on this single line prompt.
 This works exactly like the previous one, except you can put your prompts on multiple lines. For example
 
 ```
- \# CREATE a function called get user age
-
- \# ask the user to input their age
-
- \# RETURN the user's age
+ # CREATE a function called get user age
+ # ask the user to input their age
+ # RETURN the user's age
 ```
 
 **Enabling and disabling auto prompting**
@@ -159,13 +157,17 @@ You can enable/disable the auto-suggestions by clicking on the "Pause Auto Sugge
 
 Spend some time experimenting with this. Open up a new file (experiment.py) and then at the top of it write the following:
 
-\# Add Python library imports for Flask and SQLAlcamey
+```
+# Add Python library imports for Flask and SQLAlcamey
+```
 
 Hit return. You should see Amazon Q thinking (it will be greyed out) before providing you with some code suggestions.
 
 Now go to the Amazon Q setting and disable auto suggestion. You should notice that the icon looks like the pause icon. From the same file, delete everything that you previous created and type the same thing
 
-\# Add Python library imports for Flask and SQLAlcamey
+```
+# Add Python library imports for Flask and SQLAlcamey
+```
 
 When you hit return this time, it should not generate any output. No, move your cursor to the end, and hit OPTION + C (Mac), ALT + C (Windows) and this time you should see Amazon Q make some suggestions. If you hit tab to accept, and then hit return and press OPTION/ALT + C again, you will see further suggestions.
 
