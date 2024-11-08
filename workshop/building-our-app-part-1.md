@@ -6,9 +6,10 @@
 
 In the first part of this lab we are going to start by first looking at the data model for our application. As we are building a customer survey feedback application, we want to spend some time thinking about how to craft the right prompts.
 
-**Using Git branching when coding using AI coding assistants**
-
-Whilst you will be generating code in this lab, to make it easier to follow along I have provided a git repo that provides code that will support you as you explore. When you check out this repo there will be no code - don't worry, this is as per design. As we progress, we will use different branches within this repo to bring you to a working place. Feel free to ignore these and use your own code if you want. You can always reset and get back on track as the lab will provide necessary instructions.
+> **Using Git branching when coding using AI coding assistants**
+>
+>Whilst you will be generating code in this lab, to make it easier to follow along I have provided a git repo that provides code that will support >you as you explore. When you check out this repo there will be no code - don't worry, this is as per design. As we progress, we will use different >branches within this repo to bring you to a working place. Feel free to ignore these and use your own code if you want. You can always reset and get >back on track as the lab will provide necessary instructions.
+>
 
 **Creating our Python Virtual Environment**
 
@@ -18,8 +19,9 @@ From a terminal, navigate to a new directory where we will start work (I am usin
 cd ~/projects
 git clone https://github.com/094459/q-developer-workshop-demo-code.git
 cd q-developer-workshop-demo-code
+code .
 ```
-Fom the terminal, we can now start VSCode by typing in "code ."
+This will start VSCode in the sample code repo.
 
 Once VSCode has started, the first thing we need to do is make sure that we are running in the Python virtual environment we created. Open up a Terminal in VSCode, and from that terminal run the following commands:
 
