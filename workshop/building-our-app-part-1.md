@@ -44,12 +44,17 @@ You are now ready to go.
 
 The application we want to build is a simple tool for collecting customer feedback. We are going to start by using Amazon Q Developer to help us define the data model for this application, providing various prompts that will help provide a good starting point of what we want our data model to look like. Once we have our data model, we can then start to create some code artefacts.
 
-Our data Model is a reflection of the User requirements of our application. For this simple customer feedback application, we might use the following to describe this.*Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback.*
+A key pattern of working with AI coding assistants like Amazon Q Developer is to take some time to articulate what you want them to do. In this instance, we want Amazon Q Developer to create our data model. Rather than just make it up on the fly, we should take some time to think about how to formulate it.
 
 > **Optional Activity**
 > 
 > Before we proceed, spend time discussing in groups how you would define the data model for a customer feedback application. Using the starting point above, how would you improve it? Is there anything missing? How would you make it more precise or make it easier to understand.
 >
+
+The data model is a reflection of the User requirements of the application. For this simple customer feedback application, we might use the following to describe this.
+
+> *Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback.*
+
 
 ---
 
@@ -63,9 +68,37 @@ We will now see what Amazon Q Developers thinks when we ask it.
 
 Give the non deterministic nature of these tools, it is hard to predict the output you will get. 
 
-We are going to now try again, and this time use a feature of the Amazon Q Developer that will help us personalize the output that we get. In the project directory you git cloned, you will notice there is a folder called ".qdeveloper" which contains a single file - MY-PREFERENCES.md - Open the file and review it. 
+We are going to now try again, and this time use a feature of the Amazon Q Developer that will help us personalize the output that we get. From the project workspace, we are going to create a file which will then be used as context by Amazon Q, and help shape the output. Follow these steps:
 
-We are going to use this file to help tailor the output of Amazon Q Developer, using the @workspace feature. This feature is disabled by default (it is currently a BETA feature) and so we are going to have to enable it. Once enabled, this is going to index your local VSCode workspace, looking at all the files including the DBA.md. Once the indexing has completed, we can use the @workspace in the Amazon Q Developer chat interface to add specific files as part of the context. In this case we are using it to help steer the kind of output we want Amazon Q Developer to give us, but we can use it for lots of other use cases too.
+1. In the project directory you git cloned, create a folder called ".qdeveloper"
+2. Add a file called - MY-PREFERENCES.md (you can call it something different, the file name is not that important)
+3. Add the following text within this file
+
+```
+DEVSTYLE
+
+Only when I explicitly ask for code, follow this guidance:
+
+- Only provide SQL or Python code unless I explicitly ask for another language
+- I am an expert in SQL and I did not need a walk through 
+- I am an expert in Python and I did not need a walk through
+- I have a strong preference for Sqlite
+- I have a strong preference for developing code in Python version 3.10
+```
+
+We are going to use this file as additional context when prompting Amazon Q Developer. We are defining our particular style (for this workshop). You can use this technique yourself, changing it to suit what you want. For this workshop we are going to keep this.
+
+
+So our project structure will look like
+
+```
+├── .qdeveloper
+│   └── MY-PREFERENCES.md
+└── .venv
+
+```
+
+How we tailor the output of Amazon Q Developer, is by using the **@workspace** feature of Amazon Q Developer. This feature is disabled by default (it is currently a BETA feature) and so we are going to have to enable it. Once enabled, this is going to index your local VSCode workspace, looking at all the files including the MY-PREFERENCE.md. Once the indexing has completed, we can use the @workspace in the Amazon Q Developer chat interface to add specific files as part of the context. In this case we are using it to help steer the kind of output we want Amazon Q Developer to give us, but we can use it for lots of other use cases too.
 
 Right, lets enable this now.
 
@@ -113,13 +146,15 @@ We can now try this feature out.
 
 Hit return and review the output. You should get very different output this time. 
 
-2/ Make a change to the MY-PREFERENCE.md file, changing sqlite to a different database (I tried this with Oracle, but feel free to experiment). Try the same prompt again after a few moments. Did you get different output? Change the text in MY-PREFERENCE.md back to what it was.
+2/ Make a change to the MY-PREFERENCES.md file, changing sqlite to a different database (I tried this with Oracle, but feel free to experiment). Try the same prompt again after a few moments. Did you get different output? Change the text in MY-PREFERENCES.md back to what it was.
+
+We are going to re-run this prompt in the next task - here we just wanted to show how you can influence the output of what Amazon Q Developer can produce.
 
 ---
 
 **Task 4**
 
-We will now create our data model. You can do this a number of ways, and it will vary between your preferences and the norms and guidelines you might need to adopt where you are developing. We will show you how to create both SQL and Python code that will generate your tables.
+Now that we have seen how to tailor the output we get from Amazon Q Developer, we will use this as we create our data model. You can do this a number of ways, and it will vary between your preferences and the norms and guidelines you might need to adopt where you are developing. We will show you how to create both SQL and Python code that will generate your tables.
 
 *Generating SQL*
 
@@ -131,18 +166,9 @@ We will now create our data model. You can do this a number of ways, and it will
 
 Review the SQL - does it look right?
 
-
-*Getting Amazon Q Developer to help explain code*
-
-3/ Amazon Q Developer is integrated into the VSCode IDE which allows you to easily invoke it to help you with certain activities. For example, from the IDE open up the customer-feedback.sql we have just created and select all (CTRL + A). Right click on the menu and select "Amazon Q" and from the list of options, select "Explain".
-
-In the Amazon Q Developer Chat interface, you should see a good explaination of the SQL and how it works. You can use this feature any time you have code that you might want a quick summary of how it works.
-
-Copy and paste this into the file you just created. 
-
 *Generating SQL*
 
-4/ Run this modified version of the prompt. This time we have added "I want to code in Python" which should provide different output.
+3/ Run this modified version of the prompt. This time we have added "I want to code in Python" which should provide different output.
 
 > @workspace MYSTYLE Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback. I want the code in Python.
 
@@ -152,9 +178,18 @@ Review the output. Create a new file called "customer-survey.py" and paste the c
 pip install sqlalchemy
 ```
 
-Run the code and you should see a new sqlite database created in the local directory. If you have installed the VSCode plugin Database JDBC Client, you should be able to connect to this and see that the tables have been created.
+Run the code and you should see a new sqlite database created in the local directory. If you have installed the VSCode plugin Database JDBC Client, you should be able to connect to this and see that the tables have been created. 
 
-Congratulations, you have created your data model, and we can now start to build the application code.
+![Exploring the created data](/images/q-vscode-sqlite-overview.png)
+
+4/ Before proceeding with the next section, we need to do a couple of things:
+
+First we need to delete the sqlite database file that was just created. Don't worry, we will be re-creating it. So from the Files section of the VSCode, locate and then delete the customer_survey.db (or if it was called something different) from your project directory.
+
+Second delete the customer-survey.py that you created. In the next lab we are going to create our application using the data model that we added to the sql file
+
+Once you have done these two things, we are ready to go.
+
 
 **Complete:** When your database now has your created tables and indexes, you can proceed to the next lab, [Part Two](building-our-app-part-2.md)
 
