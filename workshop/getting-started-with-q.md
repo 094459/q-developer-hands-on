@@ -19,6 +19,8 @@ When we click on the Amazon Q status bar link at the bottom of VSCode, we will s
 * Open Settings - will open the Amazon Q Developer plugin settings options (as covered above)
 * Sign Out (Connected as AWS Builder ID) - allows you to log out of your current session, with the identity displayed. During this lab, it will always be AWS Builder ID. 
 
+---
+
 *Keyboard shortcuts*
 
 You can control how you invoke Amazon Q Developer via the various key shortcuts, including customising these to how you work.
@@ -26,6 +28,8 @@ You can control how you invoke Amazon Q Developer via the various key shortcuts,
 ![keyboard shortcuts for Amazon Q Developer](/images/amazon-q-vscode-shortcuts.png)
 
 One of the key short cuts to know when you are working in the inline editor, is the < and > arrows. These allow you to cycle through suggestions when you are prompted by Amazon Q Developer.
+
+---
 
 *Chat Interface*
 
@@ -44,6 +48,8 @@ Amazon Q Developer also has some power features which are invoked using the /
 
 **Note!** When using /dev and /transform with Builder IDs, you have limited quota. You can find out more on the official [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/), if you scroll half way down you will see a table which outlines the limits you have open to you.
 
+---
+
 *Menu bar integration*
 
 When you are working on our code within the editor, Amazon Q Developer provides a handy way to quickly invoke it to perform a number of functions. When working on a file, you can select a portion of code, or even if you want the whole thing, and then when you RIGHT CLICK, you will see an "Send to Amazon Q" menu option, which when you select you will see a number of options:
@@ -60,6 +66,8 @@ When you are working on our code within the editor, Amazon Q Developer provides 
 ![Example inline chat window](/images/q-vscode-inline-chat.png)
 ![Example inline chat response](/images/q-vscode-inline-chat-example.png)
 
+---
+
 *Context*
 
 During the lecture you will have heard about large language model context sizes. In effect, this is the amount of information that can be provided to tools like Amazon Q Developer, for them to then reason and make suggestions. When working with Amazon Q Developer, there are two modalities you need to be aware about.
@@ -71,6 +79,8 @@ During the lecture you will have heard about large language model context sizes.
 Amazon Q Developer also uses things such as open tabs in VSCode, as well as key files depending on programming language (for example, the pom.xml in Java) to add additional information to help it make better suggestions.
 
 If you want to get low level and see this working, you can check the logging of the Amazon Q Developer plugin and see this in action.
+
+---
 
 *Indexing your local workspace*
 
@@ -84,18 +94,19 @@ To use @workspace however, you need to first set this up. From the Amazon Q Deve
 
 Once enabled you will need to restart VSCode. When you restart it, from the OUTPUT tab, there will new option - Amazon Q Language Server. The first time VSCode starts it will explore the current workspace and start to index files.
 
-
 ![Amazon Q Developer workplace indexing logs](/images/q-workspace-index.png)
 
-!*Note!* This feature is still in preview, so there may be some rough edges. One thing I have found is that occasionally you might need to delete the indexes and then restart VSCode to kick of the re-index process.
+> **Note!** This feature is still in preview, so there may be some rough edges. One thing I have found is that occasionally you might need to delete the indexes and then restart VSCode to kick of the re-index process.
 
 One the indexing has completed, @worksplace will be ready to go.
 
+---
 
 *Amazon Q Developer logs*
 
 You can access the various Amazon Q Developer plugin logs from the OUTPUT menu option that appears when you have the terminal section in VSCode. When you select the pull down menu, you will see Amazon Q and Amazon Q Logs. The latter provides detailed information about how the plugin is working and interacting with the backend generative AI services powered by Amazon Bedrock.
 
+---
 
 **Understanding how to ask Amazon Q Developer questions**
 
@@ -110,6 +121,8 @@ The "Prompt" or "Chat Interface" is how tools like Amazon Q Developer know what 
 * Rephrase the question - sometimes, the  output you get will not be great. This is part of the nature of how these tools work. Sometimes, it is better to reword or re-think your prompt and try again
 * Remember these tools are non deterministic - it is easy to forget that every time you run the same prompt, you are likely to get different results and output. That is the nature of these tools - it is a feature not a bug
 * Debug errors by copying important parts of error messages - one of the powerful ways these tools can help you improve your productivity is by reducing context switching and allowing you to stay within your code editor whilst troubleshooting and fixing errors. Just grab the most peritent part of the error, and then send it to the Amazon Q Developer Chat panel and ask questions like "How do I resolve this error", or "What does this mean". 
+
+---
 
 
 **Additional learning resources**
