@@ -56,8 +56,6 @@ The data model is a reflection of the User requirements of the application. For 
 > *Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback.*
 
 
----
-
 **Task 1**
 
 We will now see what Amazon Q Developers thinks when we ask it. 
