@@ -27,7 +27,7 @@ Given the non deterministic nature of generative AI tools, the output you will g
 
 If that does not work, at each different section of this lab, the git repo has a number of checkpoints. These have been implemented as branches, so you can start off without worrying if the previous lab failed.
 
-![workshop-branches](/images/q-workshop-checkpoint.png)
+![workshop-branches](/images/q-workshop-checkpoints.png)
 
 Everyone running through this lab will have a different experience, but I hope the takeaway from this is a better understanding of the flow you will start to develop in using these tools to write software.
 
