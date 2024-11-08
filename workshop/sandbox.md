@@ -304,11 +304,7 @@ In addition, Amazon Q is smart enough to understand that important context can b
 
 Because context sizes are so important, and they are of a finite size, you might find better results by breaking down your project into smaller files. This will allow those files to reside within the context space available.
 
-**Markdown files**
-
-If you have lots of markdown docs in your project, and you are using /dev or @workspace, sometimes these can affect the responses you get. If you are getting strange responses, think about creating a hiddle directory (.markdown) and locating them there.
-
-**Monorepo vs Multi-repo**
+**Project workspace**
 
 If you are wanting to work in a project (for example Python) but have a lot of other code in your workspace (perhaps because you are working in a mono repo environment) the responses you can get from Amazon Q may not be what you expect. You might get Javascript or Python despite the project you are working in being in the other language. The best way to tackle this is to try and setup your IDE so that it is just working in a subfolder of your mono repo and avoid files within your local workspace that are a distraction.
 
