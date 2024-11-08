@@ -46,6 +46,13 @@ The application we want to build is a simple tool for collecting customer feedba
 
 Our data Model is a reflection of the User requirements of our application. For this simple customer feedback application, we might use the following to describe this.*Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback.*
 
+> **Optional Activity**
+> 
+> Before we proceed, spend time discussing in groups how you would define the data model for a customer feedback application. Using the starting point above, how would you improve it? Is there anything missing? How would you make it more precise or make it easier to understand.
+>
+
+---
+
 **Task 1**
 
 We will now see what Amazon Q Developers thinks when we ask it. 

@@ -33,12 +33,15 @@ Everyone running through this lab will have a different experience, but I hope t
 
 If you are working through this in a group setting, then the person running the lab will lead from the front and you can take your guidance from them.
 
+---
+
 ## Installation and Setup
 
 You do not need an AWS account to use the Amazon Q Developer plugin. You can use the free tier by [creating a Builder ID](https://aws-oss.beachgeek.co.uk/44y), and then using that Builder ID to login.
 
 [Follow this link](workshop/setup.md) to get started with installing the Amazon Q Developer plugin.
 
+---
 
 ## Building our new application
 
@@ -46,15 +49,30 @@ Now that we have everything setup and we have explored how Amazon Q Developer wo
 
 In this lab we are going to build an application in Python. We have chosen Python as it makes it easy to follow along and understand how these next generation developer tools work. 
 
-We are going to build a **customer feedback survey** application. The application will initially have some basic functionality, an MLP - Minimum Lovable Product. We will be using Amazon Q Developer to help us add code and improve the basic functionality.
+---
+
+**What are we going to build?**
+
+We are going to build a **customer feedback survey** application. The application will initially have some basic functionality, an MLP - Minimum Lovable Product. We will be using Amazon Q Developer to help us add code and improve the basic functionality. We will dive into the details as we get into the workshop, but we want our application to be able to:
+
+* allow users to register and then login to this application to use it
+* let logged in users create surveys
+* make it so that anyone can submit feedback from a survey
+* let only owners of a survey see the survey results
+
+Sound reasonable? Let's dive right in then...
 
 * [Building our application - Part One](workshop/building-our-app-part-1.md) - starting off by defining our data model
 * [Building our application - Part Two](workshop/building-our-app-part-2.md) - we will build a functioning application 
 * [Building our application - Part Three](workshop/building-our-app-part-3.md) - we will refine and improve our application
 
+---
+
 ### Feedback and additional resources
 
 Now that you have completed this Amazon Q Developer workshop, I hope you are beginning to see how you can use this as part of your day to day work. I have provided some [additional resources](workshop/resources.md) that you can review that share useful links to content, community spaces, and essential updates to keep up with the fast moving pace. I have also put togehter a [reference guide](workshop/reference.md) where you will find a handy list of the important things when using Amazon Q Developer.
+
+---
 
 **Feedback please**
 
