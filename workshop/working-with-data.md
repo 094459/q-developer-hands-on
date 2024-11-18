@@ -21,10 +21,60 @@ In this lab we are going to take a slight detour and spend some time looking at 
 1/ We are going to first set our codebase to the following baseline so everyone is on the same page.
 
 ```
-git checkout lab-01
+git checkout lab-d01
 ```
 
 2/ Next we are going to use a VSCode plugin called [Database Client JDBC](https://marketplace.visualstudio.com/items?itemName=cweijan.dbclient-jdbc) which makes it super easy to access databases via graphical UI.
+
+3/ Close all open files and tabs from within VSCode. From the Amazon Q Chat interface, enter the following:
+
+> Create SQL code for a customer feedback application
+
+Review the output. Keep the chat interface conversation open.
+
+4/ Open up the **app.py** Python code so that it is displayed within the VSCode editor, and then repeat the prompt:
+
+> Create SQL code for a customer feedback application
+
+Review: How does the chat interface language change? What does the SQL look like? This is an example of how Amazon Q uses the file you have open to provide more context. This is very important as you use these tools to understand how to influence the output.
+
+5/ Close the app.py so that you have no open files. Close the chat tab to close the conversation, and then open up a new chat interface tab. Type in the following prompt:
+
+> Create a data model for a customer survey application in Python
+
+Review the output. This time open the **customer-feedback.sql** in the data folder so that it is the only file open in VSCode. Enter the prompt again:
+
+> Create a data model for a customer survey application in Python
+
+Review: How does the output differ? Again, you can see how having a specific file open can help you get better output.
+
+
+**Task D2**
+
+In this task we are going to see how we can generate diagrams from our SQL, as well as generate SQL from our diagrams. We will need to install a VSCode plugin if you do not already have this installed. From the VSCode marketplace, find the following plugin
+
+![Enhanced Markdown Viewer](/images/vscode-markdown-enhanced.png)
+
+You can use [this link](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+
+This will provde you with a new option when you right click on any markdown document, as follows:
+
+![Enhanced Markdown viewer](/images/vscode-markdown-enhanced-fileopen.png)
+
+
+1/ Open up the **customer-feedbck.sql** file and from a new chat interface, add the following prompt:
+
+> create a mermaid diagram of this sql code that I can display in a markdown doc
+
+Review the output. In the same directory (data) create a new file called **"customer-feedback.md"** and add then copy the contents into the file. If you try and display this as it is, it will not work ( try it ). We need to add the markdown tag so that it knows to use the Mermaid diagram extension. If you are new to this, we can easily do this with the help of Amazon Q.
+
+2/ Select all the code in the newly create file, and then use the Amazozn Q menu integration (right click, Amazon Q > Send to Prompt). From the prompt, enter the following:
+
+> Add the markdown to display this
+
+After a while you should see some updated code. Overwrite the contents with the output from the chat inteface (after reviewing), and then try again with the enhanced Markdown preview. You should get something like this.
+
+![documenting the application schema](/images/vscode-mermaid-show.png)
 
 
 
