@@ -430,7 +430,7 @@ Review the output. You might need to install some additional Python libraries be
 
 Review and follow the output. You might need to use the Chat interface to troubleshoot errors when you run the generated code, so do not expect the code to necessarily run the first time. If it does, then great!
 
-It should generate some SQL code from the JSON. If you want to see the code generated when I put this workshop together, check it out [here]()
+It should generate some SQL code from the JSON. If you want to see the code generated when I put this workshop together, check it out [here](https://github.com/094459/q-developer-workshop-demo-code/blob/lab-d01/lab-data/process-json.py)
 
 Of course you could do it any way you wanted - with the power of Amazon Q Developer at your finger tips, working between different data formats has never been easier.
 
