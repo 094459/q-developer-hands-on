@@ -28,8 +28,6 @@ git checkout lab-01
 
 
 
-
-
 Building Data Models from sratch
 -reverse engineer sql from data classes
 -using yaml format to build sql
