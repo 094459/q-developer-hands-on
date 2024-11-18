@@ -438,5 +438,5 @@ The guardrails provide important protection for users of Amazon Q, and the tensi
 
 ### Complete!
 
-Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Getting started building our application](building-our-app-part-1.md).
+Ok, you are now up to speed with the Amazon Q Developer plugin, and it is time to see what you can achieve with it. Head over to the next section [Breaking down problems](breaking-down-problems.md).
 
