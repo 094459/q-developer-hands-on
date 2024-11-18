@@ -21,7 +21,7 @@ In this lab we are going to take a slight detour and spend some time looking at 
 1/ We are going to first set our codebase to the following baseline so everyone is on the same page.
 
 ```
-git checkout lab-d01
+git checkout lab-01
 ```
 
 2/ Next we are going to use a VSCode plugin called [Database Client JDBC](https://marketplace.visualstudio.com/items?itemName=cweijan.dbclient-jdbc) which makes it super easy to access databases via graphical UI.
@@ -78,20 +78,159 @@ After a while you should see some updated code. Overwrite the contents with the 
 
 Close all the tabs in VScode.
 
-3/ 
+3/ We can also generate SQL from existing mermaid diagrams we might have. This can be useful if you have some applications documented but you do not have the SQL code to recreate it. We are going to try this using a mermaid diagram that is not related to this application we are building. The New York Taxi data set is a very well known data set used when demoing data and analytics solutions. We have a mermaid diagram that explains the schema for this data.
+
+```mermaid
+erDiagram
+    zones {
+        int zone_id PK
+        varchar borough
+        varchar zone
+        varchar service_zone
+    }
+    rate_codes {
+        smallint rate_code_id PK
+        varchar rate_code_description
+    }
+    payment_types {
+        tinyint payment_type_id PK
+        varchar payment_type_description
+    }
+    drivers {
+        int driver_id PK
+        varchar driver_name
+        varchar license_number
+        varchar phone_number
+        varchar email
+        text address
+        date joined_date
+    }
+    vehicles {
+        int vehicle_id PK
+        varchar vehicle_make
+        varchar vehicle_model
+        varchar license_plate
+        varchar registration_state
+        year vehicle_year
+    }
+    trips {
+        int trip_id PK
+        datetime pickup_datetime
+        datetime dropoff_datetime
+        smallint passenger_count
+        float trip_distance
+        int pickup_location_id FK
+        int dropoff_location_id FK
+        smallint rate_code_id FK
+        char store_and_fwd_flag
+        int driver_id FK
+        int vehicle_id FK
+    }
+    payments {
+        int payment_id PK
+        int trip_id FK
+        tinyint payment_type FK
+        float fare_amount
+        float extra
+        float mta_tax
+        float tip_amount
+        float tolls_amount
+        float total_amount
+    }
+
+    trips ||--o{ payments : has
+    zones ||--o{ trips : pickup_location
+    zones ||--o{ trips : dropoff_location
+    rate_codes ||--o{ trips : has
+    drivers ||--o{ trips : drives
+    vehicles ||--o{ trips : used_in
+    payment_types ||--o{ payments : type
+
+```
 
 
-Building Data Models from sratch
--reverse engineer sql from data classes
--using yaml format to build sql
--using uml exports (mermaid diagram)
--migrating sql from one dialect to another
--personalising output for your preferred db format
+Create a new folder called "lab-data" and then within this folder create a new file called "ny-taxi.md" and copy the contents of this file into file. Once saved, you can explore using the enhanced Markdown preview.
+
+4. We will now generate SQL code from this by using the following prompt:
+
+> generate SQL code from this mermaid diagram
+
+Review the output. Does it look ok to you?
+
+Before we proceed, close all open tabs in VSCode.
+
+
+**Task D3**
+
+We can use Amazon Q Developer to help us translate SQL from one dialect to another. Developers may occasionally need to work between different SQL dialects (for example, SQL Server and PostgreSQL) and so having a tool that can automte this tedious task is going to be really helpful. 
+
+
+
+**Task D4**
+
+If you spend a lot of time working with data, then it might be a good idea to create a personalisation document that will help tailor the output of Amazon Q to your needs. We have already seen this during the setting up parts of this workshop, but lets explore what a database personalised document might look like.
+
+1/ Within the .qdeveloper folder create a new file called DBA.md
+
+2/ Add the following text within this new file
+
+```
+```
+
+3/ Save the file, and then run the following prompt to see if it has worked
+
+>
+
+
+
+**Task D5**
+
+Understanding SQL code that you have been provided (perhaps you are fixing a bug of an application, or been given an application to review) can be a hard job depending on how well that application has been documented. We can use Amazon Q Developer to help us understand a given code base.
+
+
 -Explaining and understanding SQL code
+
+
+**Task D6**
+
+You can simplify how you create your SQL code by scaffolding your design using YAML. In this task, we are going to take a sample application schema which we have documented using a YAML format, and then get Amazon Q Developer to help us create the corresponding SQL. Lets take a quick look at this.
+
+1/ Here is a sample YAML that might describe a table in our application. In the lab-data folder, create a new file called **"customer-feedback.yaml"** and copy this into that file and save it.
+
+```
+---
+name: customer_feedback
+description: Customer feedback and comments
+columns:
+  - name: customer_id
+    type: VARCHAR(3)
+    description: The unique identifier associated with each customer
+  - name: comment
+    type: VARCHAR(50)
+    description: Free text input
+  - name: created_at
+    type: TIMESTAMP WITH TIME ZONE
+    description: The timestamp noting when the customer create feedback entry
+```
+
+2/ Make sure all open files are closed, and open just this new file you have created. It should be the only open tab in your IDE
+
+3/ Try the following prompt:
+
+> generate SQL from the yaml
+
+Review the output. Does it look ok?
+
+4/ Close the file in VSCode and this time open up the **"customer-feedback.sql"** in the data folder. We will now generate YAML from this by using the following prompt:
+
+> describe this SQL as YAML
+
+Review the output. Does it look ok?
+
 
 ---
 
-**Task D1**
+**Task D7**
 
 Writing Queries
 -human/text to SQL
@@ -99,7 +238,7 @@ Writing Queries
 
 ---
 
-**Task D1**
+**Task D8**
 
 DBA functions
 
@@ -108,7 +247,7 @@ DBA functions
 
 ---
 
-**Task D1**
+**Task D9**
 
 Generating test data
 
@@ -120,20 +259,7 @@ Generating test data
 
 ---
 
-**Task D1**
-
-Analytics - take some simple existing tutorials and modify these so we can create code and test it
-
-Building Spark code
-
-Analyse the sample data we created and create some code in Spark
-https://spark.apache.org/examples.html
-https://medium.com/hasifsubair/data-engineering-with-apache-spark-d4684fb6cf0b
-https://pub.towardsai.net/a-practical-introduction-to-pyspark-2b29b88ec1d
-
----
-
-**Task D1**
+**Task D10**
 
 
 Creating DAGs
