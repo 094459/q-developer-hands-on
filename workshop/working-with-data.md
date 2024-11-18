@@ -76,6 +76,9 @@ After a while you should see some updated code. Overwrite the contents with the 
 
 ![documenting the application schema](/images/vscode-mermaid-show.png)
 
+Close all the tabs in VScode.
+
+3/ 
 
 
 Building Data Models from sratch
