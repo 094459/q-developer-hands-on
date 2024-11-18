@@ -215,6 +215,6 @@ Once you have done these two things, your directory structure should now look li
 
 Confirm that this is what your environment looks like before proceeding to the next step.
 
-**Complete:** When your database now has your created tables and indexes, you can proceed to the next lab, [Part Two](building-our-app-part-2.md)
+**Complete:** You have now completed the first part of this lab, and created your data model. You can now either tak an optional lab that explores how you can use Amazon Q Develoepr to help you with data [Working with Data](working-with-data.md), or you can proceed to part two of building our application, [Part Two](building-our-app-part-2.md)
 
 
