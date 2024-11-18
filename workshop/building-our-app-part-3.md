@@ -207,6 +207,17 @@ Once you have experimented with this, you can compare how your documentation loo
 git checkout lab-12
 ```
 
+**Task 20**
+
+We have now completed the labs and we can clean up and remove all files we used. Close all the chat tabs in the Amazon Q chat interface, and all tabs/files in VSCode. From a terminal window delete the folder you have been using during this workshop.
+
+If you want to access these again in the future, you can access this workshop at [Amazon Q Workshop](https://github.com/094459/q-developer-hands-on/blob/main/README.md)
+
+One final ask is to complete a survey. This will unlock some additional content, including 30 tips to help you supercharge your Amazon Q development.
+
+[Take the survey here](https://pulse.aws/survey/1DM5TAZU)
+
+
 
 **Complete:** You now have completed thie workshop, congratulations. 
 
