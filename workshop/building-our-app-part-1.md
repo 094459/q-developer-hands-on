@@ -168,7 +168,7 @@ Review the SQL - does it look right?
 
 3/ Run this modified version of the prompt. This time we have added "I want to code in Python" which should provide different output.
 
-> @workspace MYSTYLE Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback. I want the code in Python.
+> @workspace DEVSTYLE Create a data model for a simple customer survey application. Users will log in using an email addresses. Users will be able to create new surveys, or update/delete existing surveys. Users can create multiple surveys. Surveys can have between 2 and 5 options. Once a Surveys is created, the End Users will be able to submit feedback. I want the code in Python.
 
 Review the output. 
 
