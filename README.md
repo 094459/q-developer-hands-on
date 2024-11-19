@@ -19,6 +19,7 @@ You will need VScode IDE (or as an alternative, IntelliJ) with the following VSC
 * VSCode
 * Amazon Q Developer plugin - https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode 
 * (optional) Database Client JDBC - https://marketplace.visualstudio.com/items?itemName=cweijan.dbclient-jdbc
+* (optinal) The SQLlite Viewer - https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer
 * git
 
 **How do follow along**
